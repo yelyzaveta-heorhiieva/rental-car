@@ -40,7 +40,7 @@
   font-size: 16px;
   line-height: 125%;
   transition: background-color 250ms linear;
-  &:hover {
+  &:hover, :focus {
     background-color: var(--button-hover);
   }
 }

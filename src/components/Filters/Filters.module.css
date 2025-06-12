@@ -1,0 +1,84 @@
+.form {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 204px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+
+.inputWrapper {
+  display: flex;
+  width: 320px;
+  height: 44px;
+  position: relative;
+}
+
+.input {
+  border: none;
+  width: 160px;
+  height: 44px;
+  background: var(--inputs);
+  outline: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+}
+
+.left {
+  padding: 12px 24px 12px 66px;
+  border-radius: 12px 0 0 12px;
+  border-right: 1px solid var(--gray-light);
+}
+
+.right {
+  padding: 12px 24px 12px 48px;
+  border-radius: 0 12px 12px 0;
+}
+
+.inputText {
+  position: absolute;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.leftText {
+  top: 12px;
+  left: 24px;
+}
+
+.rightText {
+  top: 12px;
+  right: 118px;
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 156px;
+  height: 44px;
+  background-color: var(--button);
+  transition: background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--button-hover);
+}

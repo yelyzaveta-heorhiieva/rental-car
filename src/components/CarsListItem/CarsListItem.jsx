@@ -1,8 +1,14 @@
 import clsx from 'clsx';
 import s from './CarsListItem.module.css';
 import { Link } from 'react-router-dom';
+import { resetSelected, setSelected } from '../../redux/filters/slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSelected } from '../../redux/selectors';
 
 const CarsListItem = ({ car }) => {
+  const dispatch = useDispatch();
+  const selected = useSelector(selectSelected);
+
   const {
     id,
     img,
@@ -19,9 +25,26 @@ const CarsListItem = ({ car }) => {
 
   const [city, region] = address?.split(',').slice(1, 3) || [];
 
+  const handleClick = () => {
+    if (selected.some((obj) => obj.id === id)) {
+      dispatch(resetSelected(car));
+    } else {
+      dispatch(setSelected(car));
+    }
+  };
+
   return (
     <li className={s.card}>
       <img src={img} alt={description} className={s.img} />
+      <button type='button' className={s.btn} onClick={handleClick}>
+        <svg width='16' height='16' className={s.heartIcon}>
+          <use
+            href={`/icons.svg#${
+              selected.some((obj) => obj.id === id) ? 'heart-full' : 'heart'
+            }`}
+          ></use>
+        </svg>
+      </button>
       <div className={s.cardTitle}>
         <h2 className={s.model}>
           {brand} <span>{model}</span>, {year}

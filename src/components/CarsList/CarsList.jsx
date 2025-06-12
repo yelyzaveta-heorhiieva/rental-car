@@ -6,7 +6,6 @@ import s from './CarsList.module.css'
 const CarsList = () => {
   const cars = useSelector(selectCars)
 
-  console.log(cars);
   return (
     <ul className={s.carsList}>
       {cars.map((item) => <CarsListItem car={item} key={item.id} />)}
