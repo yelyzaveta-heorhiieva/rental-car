@@ -1,10 +1,16 @@
-import React from 'react'
+import CarsListItem from '../CarsListItem/CarsListItem'
+import { useSelector } from 'react-redux'
+import { selectCars } from '../../redux/selectors'
+import s from './CarsList.module.css'
 
 const CarsList = () => {
+  const cars = useSelector(selectCars)
+
+  console.log(cars);
   return (
-    <div>
-      
-    </div>
+    <ul className={s.carsList}>
+      {cars.map((item) => <CarsListItem car={item} key={item.id} />)}
+    </ul>
   )
 }
 

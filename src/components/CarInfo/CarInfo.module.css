@@ -1,0 +1,76 @@
+.carInfo p,
+.id {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 125%;
+}
+
+.mainBlock {
+  margin-bottom: 38px;
+}
+
+.model {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 133%;
+  margin-bottom: 8px;
+}
+
+.id {
+  color: var(--gray);
+}
+
+.locationBox {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.location {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.carInfo .price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 133%;
+  color: var(--button);
+  margin-bottom: 16px;
+}
+
+.infoBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media screen and (min-width: 1440px) {
+  .carInfo p,
+  .id {
+    font-size: 16px;
+  }
+
+  .mainBlock {
+    margin-top: 20px;
+    margin-bottom: 68px;
+  }
+
+  .model {
+    font-size: 24px;
+  }
+
+  .carInfo .price {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+
+  .infoBlocks {
+    gap: 110px;
+  }
+}

@@ -1,0 +1,125 @@
+.card {
+  width: 100%;
+  height: 424px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    max-width: calc((100% - 32px) / 2);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    max-width: calc((100% - 96px) / 4);
+  }
+}
+
+.img {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  border-radius: 14px;
+  width: 100%;
+  height: 268px;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+  height: 20px;
+}
+
+.model,
+.price {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--main);
+}
+
+.model {
+  max-width: 236px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 250ms linear;
+}
+
+.cardTitle:hover .model {
+  max-width: 246px;
+  background-color: var(--white);
+  border-radius: 4px;
+  padding: 4px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-wrap: wrap;
+  overflow: visible;
+}
+
+.cardTitle:hover .price {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.model span {
+  color: var(--button);
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.infoList {
+  display: flex;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: var(--gray);
+}
+
+.infoListItem {
+  position: relative;
+}
+
+.infoListItem::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 1px;
+  height: 16px;
+  background-color: var(--gray-light);
+}
+
+.lastEl::after {
+  display: none;
+}
+
+.detailsLink {
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  background-color: var(--button);
+}

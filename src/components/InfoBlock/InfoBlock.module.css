@@ -1,0 +1,29 @@
+.blockTitle {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  margin-bottom: 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media screen and (min-width: 1440px) {
+    .blockTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    gap: 16px;
+  }
+}
