@@ -18,6 +18,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { setFilters } from '../../redux/filters/slice.js';
 import Loader from '../../components/Loader/Loader.jsx';
+import { Helmet } from 'react-helmet-async';
 
 export const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -88,23 +89,28 @@ export const CatalogPage = () => {
   };
 
   return (
-    <div className={clsx('page', 'container', s.catalog)}>
-      <div className={s.formContainer}>
-        <Filters handleSubmit={handleSubmit} handleReset={handleReset} />
+    <>
+      <Helmet>
+        <title>Catalog</title>
+      </Helmet>
+      <div className={clsx('page', 'container', s.catalog)}>
+        <div className={s.formContainer}>
+          <Filters handleSubmit={handleSubmit} handleReset={handleReset} />
+        </div>
+        <CarsList />
+        {page < totalPages && (
+          <button
+            className={s.loadMoreBtn}
+            type='button'
+            onClick={() => updateSearchParams({ page: Number(page) + 1 })}
+            disabled={loading}
+          >
+            Load more
+          </button>
+        )}
+        {loading && !error && <Loader />}
       </div>
-      <CarsList />
-      {page < totalPages && (
-        <button
-          className={s.loadMoreBtn}
-          type='button'
-          onClick={() => updateSearchParams({ page: Number(page) + 1 })}
-          disabled={loading}
-        >
-          Load more
-        </button>
-      )}
-      {loading && !error && <Loader />}
-    </div>
+    </>
   );
 };
 

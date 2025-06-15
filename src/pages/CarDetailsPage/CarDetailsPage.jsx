@@ -16,6 +16,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
+import { Helmet } from 'react-helmet-async';
 
 const CarDetailsPage = () => {
   const dispatch = useDispatch();
@@ -60,58 +61,63 @@ const CarDetailsPage = () => {
   };
 
   return (
-    <div className={clsx('page', 'container')}>
-      {loading && !error && <Loader newClass='container' />}
-      <Link to={backLinkHref.current} className={s.backLink}>
-        <svg width='16' height='16' className={s.backIcon}>
-          <use href='/icons.svg#long-arrow'></use>
-        </svg>
-        Go back
-      </Link>
-      {!error && (
-        <div className={s.details}>
-          <div className={s.wrapper}>
-            <img src={img} alt={description} className={s.img} />
-            {!isTab ? (
-              <>
-                <button
-                  className={s.btn}
-                  type='button'
-                  onClick={() => setFormIsOpen(true)}
-                >
-                  Book now!
-                </button>
-                {formIsOpen && (
-                  <div className={s.backdrop} onClick={handleClose}>
-                    <div className={s.modal}>
-                      <button
-                        className={s.closeBtn}
-                        onClick={() => setFormIsOpen(false)}
-                      >
-                        <svg width='16' height='16' className={s.icon}>
-                          <use href='/icons.svg#close'></use>
-                        </svg>
-                      </button>
-                      <BookingForm handleSubmit={handleSubmit} />
+    <>
+      <Helmet>
+        <title>Car details</title>
+      </Helmet>
+      <div className={clsx('page', 'container')}>
+        {loading && !error && <Loader newClass='container' />}
+        <Link to={backLinkHref.current} className={s.backLink}>
+          <svg width='16' height='16' className={s.backIcon}>
+            <use href='/icons.svg#long-arrow'></use>
+          </svg>
+          Go back
+        </Link>
+        {!error && (
+          <div className={s.details}>
+            <div className={s.wrapper}>
+              <img src={img} alt={description} className={s.img} />
+              {!isTab ? (
+                <>
+                  <button
+                    className={s.btn}
+                    type='button'
+                    onClick={() => setFormIsOpen(true)}
+                  >
+                    Book now!
+                  </button>
+                  {formIsOpen && (
+                    <div className={s.backdrop} onClick={handleClose}>
+                      <div className={s.modal}>
+                        <button
+                          className={s.closeBtn}
+                          onClick={() => setFormIsOpen(false)}
+                        >
+                          <svg width='16' height='16' className={s.icon}>
+                            <use href='/icons.svg#close'></use>
+                          </svg>
+                        </button>
+                        <BookingForm handleSubmit={handleSubmit} />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </>
-            ) : (
-              <BookingForm handleSubmit={handleSubmit} />
+                  )}
+                </>
+              ) : (
+                <BookingForm handleSubmit={handleSubmit} />
+              )}
+            </div>
+            <CarInfo car={car} />
+            {isOpen && (
+              <BookingModal
+                onClose={() => setIsOpen(false)}
+                handleClose={handleClose}
+                details={details}
+              />
             )}
           </div>
-          <CarInfo car={car} />
-          {isOpen && (
-            <BookingModal
-              onClose={() => setIsOpen(false)}
-              handleClose={handleClose}
-              details={details}
-            />
-          )}
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

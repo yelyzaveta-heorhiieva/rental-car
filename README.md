@@ -1,12 +1,28 @@
-# React + Vite
+# 🚗 Rental Car App
+Вебзастосунок для перегляду, фільтрації та бронювання автомобілів, доступних для оренди. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛠️ Використані технології
+- React – побудова інтерфейсу користувача
+- Redux Toolkit – управління станом
+- React Router – маршрутизація
+- Formik + Yup – форми та валідація
+- CSS Modules – стилізація компонентів
+- Vite – швидка збірка застосунку
 
-Currently, two official plugins are available:
+# ✅ Можливості
+- Перегляд списку автомобілів
+- Детальна інформація про кожен автомобіль
+- Фільтрація за брендом, ціною та пробігом
+- Форма бронювання
+- Збереження у вибране
+- Адаптивна верстка для мобільних пристроїв
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Автор
 
-## Expanding the ESLint configuration
+Георгієва Єлизавета
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+GitHub: @yelyzaveta-heorhiieva
+LinkedIn: linkedin.com/in/yelyzaveta-heorhiieva-309022342/
+Telegram: @heorhiieva_liza
+Email: heorhiieva.y@gmail.com
+ 
