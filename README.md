@@ -17,12 +17,12 @@
 - Збереження у вибране
 - Адаптивна верстка для мобільних пристроїв
 
-# Автор
+# 👩‍💻 Автор
 
 Георгієва Єлизавета
 
-GitHub: @yelyzaveta-heorhiieva
-LinkedIn: linkedin.com/in/yelyzaveta-heorhiieva-309022342/
-Telegram: @heorhiieva_liza
-Email: heorhiieva.y@gmail.com
+- GitHub: @yelyzaveta-heorhiieva
+- LinkedIn: linkedin.com/in/yelyzaveta-heorhiieva-309022342/
+- Telegram: @heorhiieva_liza
+- Email: heorhiieva.y@gmail.com
  

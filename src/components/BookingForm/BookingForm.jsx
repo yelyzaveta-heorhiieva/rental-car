@@ -4,17 +4,14 @@ import s from './BookingForm.module.css';
 import clsx from 'clsx';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useState } from 'react';
 
 const BookingForm = ({ handleSubmit }) => {
-  
   const initialValues = {
     name: '',
     email: '',
     date: '',
     comment: '',
   };
-
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -29,7 +26,7 @@ const BookingForm = ({ handleSubmit }) => {
     date: Yup.date().min(new Date(), 'Date must be today or later'),
     comment: Yup.string()
       .min(2, 'Comment must contain at least 2 characters')
-      .max(260, 'The comment must not exceed 260 characters')
+      .max(260, 'The comment must not exceed 260 characters'),
   });
 
   return (

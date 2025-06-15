@@ -36,6 +36,7 @@ const CarDetailsPage = () => {
 
   useEffect(() => {
     dispatch(fetchCarById(id));
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   const { img, description } = car;
@@ -73,7 +74,7 @@ const CarDetailsPage = () => {
           </svg>
           Go back
         </Link>
-        {!error && (
+        {!error && !loading && (
           <div className={s.details}>
             <div className={s.wrapper}>
               <img src={img} alt={description} className={s.img} />

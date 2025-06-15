@@ -5,8 +5,9 @@ import { resetSelected, setSelected } from '../../redux/filters/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSelected } from '../../redux/selectors';
 import { useLocation } from 'react-router-dom';
+import { forwardRef } from 'react';
 
-const CarsListItem = ({ car }) => {
+const CarsListItem = forwardRef(({ car }, ref) => {
   const dispatch = useDispatch();
   const selected = useSelector(selectSelected);
   const location = useLocation();
@@ -36,7 +37,7 @@ const CarsListItem = ({ car }) => {
   };
 
   return (
-    <li className={s.card}>
+    <li className={s.card} ref={ref}>
       <img src={img} alt={description} className={s.img} />
       <button type='button' className={s.btn} onClick={handleClick}>
         <svg width='16' height='16' className={s.heartIcon}>
@@ -66,11 +67,16 @@ const CarsListItem = ({ car }) => {
           </li>
         </ul>
       </div>
-      <Link to={`/catalog/${id}`} className={s.detailsLink} state={location}>
+      <Link
+        to={`/catalog/${id}`}
+        className={s.detailsLink}
+        state={location}
+        onClick={() => sessionStorage.setItem('scrollToId', id)}
+      >
         Read more
       </Link>
     </li>
   );
-};
+});
 
 export default CarsListItem;

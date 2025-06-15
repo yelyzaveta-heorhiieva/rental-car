@@ -95,7 +95,10 @@ export const CatalogPage = () => {
       </Helmet>
       <div className={clsx('page', 'container', s.catalog)}>
         <div className={s.formContainer}>
-          <Filters handleSubmit={handleSubmit} handleReset={handleReset} />
+          <Filters
+            handleSubmit={handleSubmit}
+            handleReset={handleReset}
+          />
         </div>
         <CarsList />
         {page < totalPages && (

@@ -39,6 +39,7 @@ const Filters = ({ handleSubmit, handleReset }) => {
               <NumericFormat
                 thousandSeparator=','
                 allowNegative={false}
+                value={values.minMileage}
                 onValueChange={(values) => {
                   setFieldValue('minMileage', values.value);
                 }}
@@ -48,6 +49,7 @@ const Filters = ({ handleSubmit, handleReset }) => {
               <NumericFormat
                 thousandSeparator=','
                 allowNegative={false}
+                value={values.maxMileage}
                 onValueChange={(values) => {
                   setFieldValue('maxMileage', values.value);
                 }}
