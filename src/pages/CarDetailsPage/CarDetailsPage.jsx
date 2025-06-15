@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarById } from '../../redux/cars/operations';
 import { useParams } from 'react-router-dom';
-import { selectCarById, selectError, selectLoading } from '../../redux/selectors';
+import {
+  selectCarById,
+  selectError,
+  selectLoading,
+} from '../../redux/selectors';
 import clsx from 'clsx';
 import s from './CarDetailsPage.module.css';
 import CarInfo from '../../components/CarInfo/CarInfo';
@@ -16,8 +20,8 @@ import Loader from '../../components/Loader/Loader';
 const CarDetailsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const loading = useSelector(selectLoading)
-  const error = useSelector(selectError)
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const car = useSelector(selectCarById);
   const [details, setDetails] = useState({});
   const [isOpen, setIsOpen] = useState(false);
@@ -64,47 +68,49 @@ const CarDetailsPage = () => {
         </svg>
         Go back
       </Link>
-      {!error && <div className={s.details}>
-        <div className={s.wrapper}>
-          <img src={img} alt={description} className={s.img} />
-          {!isTab ? (
-            <>
-              <button
-                className={s.btn}
-                type='button'
-                onClick={() => setFormIsOpen(true)}
-              >
-                Book now!
-              </button>
-              {formIsOpen && (
-                <div className={s.backdrop} onClick={handleClose}>
-                  <div className={s.modal}>
-                    <button
-                      className={s.closeBtn}
-                      onClick={() => setFormIsOpen(false)}
-                    >
-                      <svg width='16' height='16' className={s.icon}>
-                        <use href='/icons.svg#close'></use>
-                      </svg>
-                    </button>
-                    <BookingForm handleSubmit={handleSubmit} />
+      {!error && (
+        <div className={s.details}>
+          <div className={s.wrapper}>
+            <img src={img} alt={description} className={s.img} />
+            {!isTab ? (
+              <>
+                <button
+                  className={s.btn}
+                  type='button'
+                  onClick={() => setFormIsOpen(true)}
+                >
+                  Book now!
+                </button>
+                {formIsOpen && (
+                  <div className={s.backdrop} onClick={handleClose}>
+                    <div className={s.modal}>
+                      <button
+                        className={s.closeBtn}
+                        onClick={() => setFormIsOpen(false)}
+                      >
+                        <svg width='16' height='16' className={s.icon}>
+                          <use href='/icons.svg#close'></use>
+                        </svg>
+                      </button>
+                      <BookingForm handleSubmit={handleSubmit} />
+                    </div>
                   </div>
-                </div>
-              )}
-            </>
-          ) : (
-            <BookingForm handleSubmit={handleSubmit} />
+                )}
+              </>
+            ) : (
+              <BookingForm handleSubmit={handleSubmit} />
+            )}
+          </div>
+          <CarInfo car={car} />
+          {isOpen && (
+            <BookingModal
+              onClose={() => setIsOpen(false)}
+              handleClose={handleClose}
+              details={details}
+            />
           )}
         </div>
-        <CarInfo car={car} />
-        {isOpen && (
-          <BookingModal
-            onClose={() => setIsOpen(false)}
-            handleClose={handleClose}
-            details={details}
-          />
-        )}
-      </div>}
+      )}
     </div>
   );
 };
