@@ -7,6 +7,9 @@
 
 .mainBlock {
   margin-bottom: 38px;
+  @media screen and (min-width: 768px) {
+    margin-top: 16px;
+  }
 }
 
 .model {

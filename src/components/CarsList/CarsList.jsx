@@ -7,9 +7,12 @@ const CarsList = () => {
   const cars = useSelector(selectCars)
 
   return (
-    <ul className={s.carsList}>
-      {cars.map((item) => <CarsListItem car={item} key={item.id} />)}
-    </ul>
+   <>
+      {!cars.length && <p className={s.errorText}>There are no cars for your request</p>}
+        <ul className={s.carsList}>
+        {cars.map((item) => <CarsListItem car={item} key={item.id} />)}
+      </ul>
+   </>
   )
 }
 

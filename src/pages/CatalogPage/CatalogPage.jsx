@@ -1,23 +1,33 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../../redux/cars/operations.js';
 import CarsList from '../../components/CarsList/CarsList.jsx';
 import clsx from 'clsx';
 import Filters from '../../components/Filters/Filters.jsx';
 import s from './CatalogPage.module.css';
-import { selectPage, selectTotalPages } from '../../redux/selectors.js';
+import {
+  selectError,
+  selectFilters,
+  selectLoading,
+  selectPage,
+  selectTotalPages,
+} from '../../redux/selectors.js';
 import { fetchBrands } from '../../redux/filters/operations.js';
 import { resetItems, upDatePage } from '../../redux/cars/slice.js';
 import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { setFilters } from '../../redux/filters/slice.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 export const CatalogPage = () => {
   const dispatch = useDispatch();
   const totalPages = useSelector(selectTotalPages);
   const page = useSelector(selectPage);
+  const filters = useSelector(selectFilters);
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
   const updateSearchParams = (params) => {
     const updated = new URLSearchParams(searchParams);
@@ -40,11 +50,11 @@ export const CatalogPage = () => {
   useEffect(() => {
     dispatch(resetItems());
     dispatch(fetchBrands());
-     for (let i = 1; i <= currentPage; i++) {
-       dispatch(
-         fetchCars({ page: i, brand, rentalPrice, minMileage, maxMileage }),
-       );
-     }
+    for (let i = 1; i <= currentPage; i++) {
+      dispatch(
+        fetchCars({ page: i, brand, rentalPrice, minMileage, maxMileage }),
+      );
+    }
   }, [dispatch]);
 
   useEffect(() => {
@@ -64,28 +74,36 @@ export const CatalogPage = () => {
   const handleReset = () => {
     navigate('/catalog');
     dispatch(resetItems());
-    dispatch(fetchCars({currentPage}));
+    dispatch(fetchCars({ currentPage }));
   };
 
   const handleSubmit = (values) => {
-    dispatch(resetItems());
-    updateSearchParams({ page: 1, ...values })
+    dispatch(setFilters(values));
+    if (JSON.stringify(filters) !== JSON.stringify(values))
+      dispatch(resetItems());
+    updateSearchParams({
+      page: 1,
+      ...values,
+    });
   };
 
   return (
     <div className={clsx('page', 'container', s.catalog)}>
       <div className={s.formContainer}>
-        <Filters handleSubmit={handleSubmit} handleReset={handleReset}/>
-        {/* <button className={s.btn} type='button' onClick={handleClick}>
-          Reset
-        </button> */}
+        <Filters handleSubmit={handleSubmit} handleReset={handleReset} />
       </div>
       <CarsList />
       {page < totalPages && (
-        <button className={s.loadMoreBtn} type='button' onClick={()=>updateSearchParams({ page: Number(page) + 1 })}>
+        <button
+          className={s.loadMoreBtn}
+          type='button'
+          onClick={() => updateSearchParams({ page: Number(page) + 1 })}
+          disabled={loading}
+        >
           Load more
         </button>
       )}
+      {loading && !error && <Loader />}
     </div>
   );
 };

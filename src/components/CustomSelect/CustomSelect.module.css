@@ -1,12 +1,12 @@
 .selectWrapper {
-  width: 204px;
+  width: 100%;
 }
 
 .label {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 204px;
+  width: 100%;
   font-weight: 400;
   font-size: 12px;
   line-height: 133%;
@@ -22,7 +22,7 @@
 }
 
 .isActive {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .select {
@@ -34,20 +34,20 @@
   outline: transparent;
   background-color: var(--inputs);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 125%;
   color: var(--main);
 }
 
 .scrollContainer {
-    position: absolute;
-    z-index: 4;
+  position: absolute;
+  z-index: 4;
   border: 1px solid var(--inputs);
   border-radius: 12px;
   box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
   background-color: var(--white);
   max-height: 272px;
-  width: 204px;
+  width: 100%;
   top: 72px;
   padding: 12px 8px;
 }
@@ -78,11 +78,25 @@
 
 .option {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 125%;
   color: var(--gray);
 }
 
 .option:hover {
   color: var(--main);
+}
+
+@media screen and (min-width: 768px) {
+  .selectWrapper {
+    width: 204px;
+  }
+
+  .select {
+    font-size: 16px;
+  }
+
+  .option {
+    font-size: 16px;
+  }
 }

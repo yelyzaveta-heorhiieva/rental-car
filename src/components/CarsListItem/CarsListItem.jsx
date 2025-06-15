@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import { resetSelected, setSelected } from '../../redux/filters/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSelected } from '../../redux/selectors';
+import { useLocation } from 'react-router-dom';
 
 const CarsListItem = ({ car }) => {
   const dispatch = useDispatch();
   const selected = useSelector(selectSelected);
+  const location = useLocation();
 
   const {
     id,
@@ -64,7 +66,7 @@ const CarsListItem = ({ car }) => {
           </li>
         </ul>
       </div>
-      <Link to={`/catalog/${id}`} className={s.detailsLink}>
+      <Link to={`/catalog/${id}`} className={s.detailsLink} state={location}>
         Read more
       </Link>
     </li>

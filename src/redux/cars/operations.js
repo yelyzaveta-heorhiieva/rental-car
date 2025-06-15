@@ -17,6 +17,7 @@ export const fetchCars = createAsyncThunk(
       const response = await api.get('/cars', { params });
       return response.data;
     } catch (e) {
+      console.log(e.response.data.message);
       toast.error('Request failed');
       return thunkAPI.rejectWithValue(e.message);
     }

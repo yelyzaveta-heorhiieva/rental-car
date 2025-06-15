@@ -6,7 +6,7 @@ export const fetchBrands = createAsyncThunk(
   'filters/fetchBrands',
   async (_, thunkAPI) => {
     try {
-      const {data} = await api.get('/brands');
+      const { data } = await api.get('/brands');
       return data;
     } catch (e) {
       toast.error('Request failed');
@@ -14,4 +14,3 @@ export const fetchBrands = createAsyncThunk(
     }
   },
 );
-

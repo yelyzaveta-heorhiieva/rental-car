@@ -1,0 +1,107 @@
+.formContainer {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  background: var(--white);
+}
+
+.formTitle {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  color: var(--main);
+  margin-bottom: 8px;
+}
+
+.formText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 125%;
+  color: var(--gray);
+  margin-bottom: 24px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.input {
+  display: block;
+  border: none;
+  outline: transparent;
+  border-radius: 12px;
+  padding: 10px 16px;
+  min-width: 100%;
+  background-color: var(--inputs);
+}
+
+.calendar {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+.textArea {
+  resize: none;
+  height: 88px;
+}
+
+.btn {
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 156px;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  background-color: var(--button);
+  margin-top: 8px;
+  margin-right: auto;
+  margin-left: auto;
+   transition: background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--button-hover);
+}
+
+.error {
+  display: block;
+  margin-top: 4px;
+  margin-left: 16px;
+  font-size: 12px;
+  color: red;
+}
+
+@media screen and (min-width: 1440px) {
+  .formContainer {
+    padding: 32px;
+  }
+
+  .formTitle {
+    font-size: 20px;
+
+  }
+
+  .formText {
+    font-size: 16px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .input {
+    padding: 14px 20px;
+  }
+
+}

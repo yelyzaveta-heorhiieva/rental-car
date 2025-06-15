@@ -6,6 +6,7 @@ const filtersSlice = createSlice({
   initialState: {
     brands: [],
     selected: [],
+    filters: {},
     loading: false,
     error: null,
   },
@@ -14,7 +15,12 @@ const filtersSlice = createSlice({
       state.selected.push(action.payload);
     },
     resetSelected(state, action) {
-      state.selected = state.selected.filter(({id})=> id !== action.payload.id);
+      state.selected = state.selected.filter(
+        ({ id }) => id !== action.payload.id,
+      );
+    },
+    setFilters(state, action) {
+      state.filters = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -34,6 +40,6 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setSelected, resetSelected } = filtersSlice.actions;
+export const { setSelected, resetSelected, setFilters } = filtersSlice.actions;
 
 export default filtersSlice.reducer;

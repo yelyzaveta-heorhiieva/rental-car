@@ -1,6 +1,13 @@
 .catalog {
+  padding-top: 34px;
+  padding-bottom: 84px;
+}
+
+@media screen and (min-width: 768px) {
+  .catalog {
   padding-top: 84px;
   padding-bottom: 124px;
+}
 }
 
 .formContainer {

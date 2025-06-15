@@ -1,3 +1,18 @@
+.backLink {
+  padding: 18px 20px 0 20px;
+  max-width: 300px;
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  align-items: center;
+  transition: all 250ms linear;
+}
+
+.backIcon {
+  transform: rotate(180deg);
+  transition: fill 250ms linear;
+}
+
 .details {
   padding-top: 30px;
   padding-bottom: 40px;
@@ -19,6 +34,62 @@
     rgba(18, 20, 23, 0.5) 0%,
     rgba(18, 20, 23, 0.5) 100%
   );
+  margin-bottom: 20px;
+}
+
+.btn {
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  background-color: var(--button);
+  margin-right: auto;
+  margin-left: auto;
+  transition: background-color 250ms linear;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--button-hover);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 287px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.icon {
+  stroke: var(--main);
 }
 
 @media screen and (min-width: 768px) {
@@ -30,11 +101,22 @@
   .wrapper {
     min-width: 340px;
   }
+
+  .backLink:hover .backIcon,
+  .backLink:focus .backIcon {
+    fill: var(--button-hover);
+  }
+
+  .backLink:hover,
+  .backLink:focus {
+    transform: scale(1.1);
+    padding-left: 40px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .details {
-    padding-top: 84px;
+    padding-top: 34px;
     padding-bottom: 104px;
     gap: 72px;
   }
@@ -45,5 +127,22 @@
 
   .img {
     height: 512px;
+    margin-bottom: 40px;
   }
+
+  .backLink  {
+    font-size: 20px;
+    padding: 30px 20px 0 20px;
+  }
+
+  .backLink:hover,
+  .backLink:focus {
+    transform: scale(1.1);
+    padding-left: 60px;
+  }
+
+  .backIcon {
+  width: 20px;
+  height: 20px;
+}
 }
