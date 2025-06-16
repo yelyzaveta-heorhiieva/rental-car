@@ -1,0 +1,110 @@
+.calendar-input {
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+
+.react-datepicker__tab-loop .myCalendar {
+  border: 1px solid var(--button);
+  border-radius: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__header {
+  border-bottom: 1px solid var(--button);
+  border-radius: 12px 12px 0 0;
+  padding: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__day-name {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--gray);
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__month-container {
+  border: none;
+  border-radius: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker {
+  border-radius: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__triangle {
+  stroke: blue;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__month {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__week {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__current-month {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: var(--main);
+  margin-bottom: 12px;
+}
+
+.react-datepicker__tab-loop
+  .myCalendar
+  .react-datepicker__navigation--previous {
+  left: 12px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__navigation {
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  right: 12px;
+  color: var(--button);
+}
+
+.react-datepicker__tab-loop
+  .myCalendar
+  .react-datepicker__navigation-icon::before {
+  border-color: currentColor;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__day {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+  width: 36px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__day--selected{
+  border-radius: 32px;
+  background: var(--button);
+  color: var(--inputs);
+}
+
+.react-datepicker__tab-loop .myCalendar .react-datepicker__day--outside-month {
+  color: var(--gray);
+}

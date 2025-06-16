@@ -2,8 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import s from './BookingForm.module.css';
 import clsx from 'clsx';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import CustomCalendar from '../CustomCalendar/CustomCalendar';
 
 const BookingForm = ({ handleSubmit }) => {
   const initialValues = {
@@ -62,17 +61,7 @@ const BookingForm = ({ handleSubmit }) => {
             </label>
             <label>
               <div className={s.input}>
-                <DatePicker
-                  name='date'
-                  className={s.calendar}
-                  selected={values.date}
-                  minDate={new Date()}
-                  dateFormat='dd.MM.yyyy'
-                  onChange={(date) => {
-                    setFieldValue('date', date);
-                  }}
-                  placeholderText='Booking date'
-                />
+                <CustomCalendar name='date' selected={values.date} setFieldValue={setFieldValue} />
               </div>
               <ErrorMessage className={s.error} name='date' component='span' />
             </label>
